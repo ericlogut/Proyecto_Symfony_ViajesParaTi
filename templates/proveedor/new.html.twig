@@ -1,0 +1,28 @@
+{% extends 'proveedor/base.html.twig' %}
+
+{% block title %}Crear/Editar Proveedor{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <h3>Crear/Editar Proveedor</h3>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {{ form_start(form, {'attr': {'class': 'my-custom-form-class mx-auto'}}) }}
+                {{ form_row(form.nombre, {'attr': {'class': 'form-control mb-3'}}) }}
+                {{ form_row(form.email, {'attr': {'class': 'form-control mb-3'}}) }}
+                {{ form_row(form.telefono, {'attr': {'class': 'form-control mb-3'}}) }}
+                {{ form_row(form.tipoProveedor, {'attr': {'class': 'form-select mb-3'}}) }}
+                {{ form_row(form.activo)}}
+                <div class="d-flex justify-content-between">
+                    {{ form_row(form.submit, {'attr': {'class': 'btn btn-primary'}}) }}
+                    <a href="{{ path('list_proveedor') }}" class="btn btn-secondary">Volver</a>
+                </div>
+                {{ form_end(form)}}
+            </div>
+        </div>
+    </div>
+{% endblock %}

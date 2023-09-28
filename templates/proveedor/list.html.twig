@@ -1,0 +1,44 @@
+{% extends 'proveedor/base.html.twig' %}
+{% block title %}Lista de Proveedores{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="my-4">Lista de Proveedores</h1>
+        <div class="table-responsive">
+            <a href="{{ path('create_proveedor') }}" class="btn btn-primary mb-3">Nuevo</a>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Tipo de Proveedor</th>
+                        <th>Activo</th>
+                        <th>Última Actualización</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proveedor in pagination %}
+                        <tr>
+                            <td>{{ proveedor.id }}</td>
+                            <td>{{ proveedor.nombre }}</td>
+                            <td>{{ proveedor.email }}</td>
+                            <td>{{ proveedor.telefono }}</td>
+                            <td>{{ proveedor.tipoProveedor }}</td>
+                            <td>{{ proveedor.activo ? 'Sí' : 'No' }}</td>
+                            <td>{{ proveedor.lastUpdate|date('d/m/Y H:i:s') }}</td>
+                            <td>
+                                <a href="{{ path('proveedor_edit', {'id': proveedor.id}) }}" class="btn btn-warning">Editar</a>
+                                <a href="{{ path('proveedor_delete', {'id': proveedor.id}) }}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas borrar este proveedor?')">Borrar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+                <div class="pagination">
+                    {{ knp_pagination_render(pagination) }}
+                </div>
+        </div>
+    </div>
+{% endblock %}
