@@ -58,8 +58,9 @@ class ProveedorController extends AbstractController
             // Sacamos los datos
             $proveedor = $form->getData();
 
-            // Indicamos la fecha de última actualización
+            // Indicamos las fechas
             $proveedor->setLastUpdate(new \DateTime());
+            $proveedor->setCreateDateTime(new \DateTime());
 
             // Introducimos los datos
             $entityManager->persist($proveedor);

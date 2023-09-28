@@ -13,7 +13,6 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Validator\Constraints\Regex;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\Email;  
 
 
@@ -25,21 +24,7 @@ class ProveedorType extends AbstractType
 
         // Nombre
         ->add('nombre', TextType::class, [
-            
-            // Validaciones
-            'required' => true,
-            'constraints' => [
-                new Length([
-                    'min' => 2,
-                    'max' => 255,
-                    'minMessage' => 'El nombre debe tener al menos {{ limit }} carácteres.',
-                    'maxMessage' => 'El nombre no debe tener más de {{ limit }} carácteres.',
-                ]),
-                new Regex([
-                    'pattern' => '/^[a-zA-Z\s]+$/',
-                    'message' => 'El nombre solo puede contener letras y espacios.',
-                ]),
-            ],
+            'required' => true
         ])
 
         // Correo electrónico

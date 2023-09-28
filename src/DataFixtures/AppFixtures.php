@@ -7,6 +7,7 @@ use Doctrine\Persistence\ObjectManager;
 use App\Entity\Proveedor;
 
 // Seeder de proveedores
+// Comando para usarlo: php bin/console doctrine:fixtures:load
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
@@ -22,6 +23,7 @@ class AppFixtures extends Fixture
         $proveedor1->setTipoProveedor('Hotel');
         $proveedor1->setActivo(1);
         $proveedor1->setLastUpdate($fechaActual);
+        $proveedor1->setCreateDateTime($fechaActual);
 
         $manager->persist($proveedor1);
 
@@ -33,6 +35,7 @@ class AppFixtures extends Fixture
         $proveedor2->setTipoProveedor('Pista');
         $proveedor2->setActivo(1);
         $proveedor2->setLastUpdate($fechaActual);
+        $proveedor2->setCreateDateTime($fechaActual);
 
         $manager->persist($proveedor2);
 
@@ -44,6 +47,7 @@ class AppFixtures extends Fixture
         $proveedor3->setTipoProveedor('Complementario');
         $proveedor3->setActivo(0);
         $proveedor3->setLastUpdate($fechaActual);
+        $proveedor3->setCreateDateTime($fechaActual);
 
         $manager->persist($proveedor3);
 
@@ -55,6 +59,7 @@ class AppFixtures extends Fixture
         $proveedor4->setTipoProveedor('Hotel');
         $proveedor4->setActivo(1);
         $proveedor4->setLastUpdate($fechaActual);
+        $proveedor4->setCreateDateTime($fechaActual);
 
         $manager->persist($proveedor4);
 
@@ -66,8 +71,21 @@ class AppFixtures extends Fixture
         $proveedor5->setTipoProveedor('Pista');
         $proveedor5->setActivo(1);
         $proveedor5->setLastUpdate($fechaActual);
+        $proveedor5->setCreateDateTime($fechaActual);
 
         $manager->persist($proveedor5);
+
+        // Proveedor 6 (Este dará error porque su tipo de proveedor no esta en la lista)
+        // $proveedor6 = new Proveedor();
+        // $proveedor6->setNombre('Proveedor 6');
+        // $proveedor6->setEmail('proveedor5@example.com');
+        // $proveedor6->setTelefono('777777777');
+        // $proveedor6->setTipoProveedor('Pistacho');
+        // $proveedor6->setActivo(1);
+        // $proveedor6->setLastUpdate($fechaActual);
+        // $proveedor6->setCreateDateTime($fechaActual);
+
+        // $manager->persist($proveedor6);
 
         // Subo todos los proveedores a la base de datos
         $manager->flush();

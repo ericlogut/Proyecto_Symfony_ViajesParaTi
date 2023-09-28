@@ -15,6 +15,7 @@
                         <th>Tipo de Proveedor</th>
                         <th>Activo</th>
                         <th>Última Actualización</th>
+                        <th>Fecha de creación</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
@@ -28,6 +29,7 @@
                             <td>{{ proveedor.tipoProveedor }}</td>
                             <td>{{ proveedor.activo ? 'Sí' : 'No' }}</td>
                             <td>{{ proveedor.lastUpdate|date('d/m/Y H:i:s') }}</td>
+                            <td>{{ proveedor.createDateTime|date('d/m/Y H:i:s') }}</td>
                             <td>
                                 <a href="{{ path('proveedor_edit', {'id': proveedor.id}) }}" class="btn btn-warning">Editar</a>
                                 <a href="{{ path('proveedor_delete', {'id': proveedor.id}) }}" class="btn btn-danger" onclick="return confirm('¿Estás seguro de que deseas borrar este proveedor?')">Borrar</a>
