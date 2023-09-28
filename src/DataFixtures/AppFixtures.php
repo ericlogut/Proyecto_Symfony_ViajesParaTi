@@ -8,6 +8,7 @@ use App\Entity\Proveedor;
 
 // Seeder de proveedores
 // Comando para usarlo: php bin/console doctrine:fixtures:load
+
 class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
