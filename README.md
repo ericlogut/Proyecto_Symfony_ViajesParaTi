@@ -2,4 +2,4 @@
 Pequeña actividad realizada para Viajes Para Ti.
 
 ### Información relevante
-Existe un seeder en DataFixtures para poder utilizar la base de datos.
+Existe un seeder en /src/DataFixtures para poder utilizar la base de datos.
